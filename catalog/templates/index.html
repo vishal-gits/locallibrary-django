@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+{% block title %}
+<title>LocalLibrary</title>
+{% endblock %}
+{% block content %} 
+    <h1>Local Library Home</h1>
+    <p>Welcome to Local Library , a website developed by </p>
+    <em>MDN Django Docs</em>
+    <h2>Dynamic Content</h2>
+    <p>The library has following record counts</p>
+    <ul>
+        <li><strong>Books: </strong>{{num_books}}</li>
+        <li><strong>Copies: </strong>{{num_instances}}</li>
+        <li><strong>Copies Available: </strong>{{num_instances_available}}</li>
+        <li><strong>Authors: </strong>{{num_authors}}</li>
+        <li><strong>Genres: </strong>{{num_genres}}</li>
+        <li><strong>Book with word 'wind': </strong>{{num_book_with_word_wind}}</li>
+
+
+    </ul>
+
+    <p>You have visited this page {{num_visits}} time{{num_visits|pluralize}}</p>
+
+{% endblock %}

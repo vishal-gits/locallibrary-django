@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+<h1>Delete Book </h1>
+<!-- if you are using book.instances.all , you cannot use book.bookinstance_set.all -->
+{% if book.instances.all %}
+
+    <p>You cannot delete this book untill all the bookinstances have been deleted </p>
+
+    <ul>
+        {% for copy in book.instances.all %}
+          <li><a href="{{ copy.get_absolute_url }}">{{copy.id}}</a> (Imprint: {{copy.imprint}})</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <p>Are you sure you want to delete the book : {{ book }} </p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete" action="">
+    </form>
+
+
+{% endif %}
+
+
+{% endblock %}
